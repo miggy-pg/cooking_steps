@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Borel&family=Inconsolata:wght@900&family=PT+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;1,300&family=Borel&family=Inconsolata:wght@900&family=PT+Sans:wght@700&display=swap");
+
+$borel: "Borel", cursive;
+$bitter: "Bitter", serif;
+$firaSans: "Fira Sans", sans-serif;
+$color-text: #fff;
+$color-background: linear-gradient(to right bottom, #ffb88e, #ea5753);
+$color-container: linear-gradient(
+  to right bottom,
+  rgba(255, 184, 142, 0.44),
+  rgba(255, 255, 255, 0.5)
+);
+$color-list: rgba(234, 87, 83, 0.7);
+
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $background-color: mix($foreground-color, white, 50%)
+) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 100%;
+  font-family: $firaSans;
+  background-color: rgba(255, 163, 160, 0.7);
+  scroll-behavior: smooth;
+}
+
+.card-hover {
+  $root: &;
+  width: 30rem;
+  height: 40rem;
+  margin: 5rem auto;
+  position: relative;
+
+  &__cookbook_title_wrapper {
+    height: 10rem;
+    text-align: center;
+
+    img {
+      width: 3rem;
+      height: 3rem;
+      filter: brightness(0) saturate(100%) invert(35%) sepia(30%)
+        saturate(2523%) hue-rotate(330deg) brightness(84%) contrast(82%);
+    }
+    p {
+      margin: 0 0 0.5rem 0;
+      padding: 0;
+      font-size: 0.9rem;
+      font-family: $bitter;
+      font-style: italic;
+    }
+  }
+  &__cookbook_title {
+    font-family: $borel;
+    font-size: 3.1rem;
+    font-weight: 700;
+    color: #b3413d;
+  }
+  &__content {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    padding: 0;
+    position: absolute;
+    overflow-y: scroll;
+
+    @include scrollbars(0.5em, rgba(255, 163, 160, 0.7));
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+
+    span {
+      color: #2d7f0b;
+    }
+  }
+
+  &__text {
+    font-size: 0.75rem;
+    grid-column: span 3; /* Makes this "empty" item span all 3 columns */
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #dee8c2;
+    margin: 0 1rem;
+
+    button {
+      background-color: #fff000;
+      border-radius: 12px;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 10px 15px;
+      text-align: center;
+      transition: 200ms;
+      box-sizing: border-box;
+      border: 0;
+      font-size: 16px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    button:not(:disabled):hover,
+    button:not(:disabled):focus {
+      outline: 0;
+      background: #f4e603;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+    }
+    button:disabled {
+      filter: saturate(0.2) opacity(0.5);
+      -webkit-filter: saturate(0.2) opacity(0.5);
+      cursor: not-allowed;
+    }
+  }
+  // 	List
+  ol {
+    margin: 1rem;
+    gap: 1.5rem;
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    list-style: none;
+    align-items: center;
+
+    li {
+      font-family: $bitter;
+      width: 90%;
+      text-align: left;
+      color: $color-text;
+      border-radius: 1rem;
+      background: $color-list;
+      padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+      display: grid;
+      grid-template-columns: 0.02fr 2fr 1fr;
+      list-style-type: none;
+
+      button {
+        position: relative;
+        float: right;
+        border: 1px solid red;
+      }
+      img {
+        width: 1.3rem;
+        height: 1.3rem;
+        margin-right: 0.4rem;
+      }
+    }
+  }
+}
