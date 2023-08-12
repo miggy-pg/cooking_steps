@@ -1,50 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import "./index.scss";
 import food_recipes from "./data/food_recipes";
+import Food from "./pages/Food";
+import { BrowserRouter } from "react-router-dom";
 
-function Steps() {
-  return (
-    <h3 className="card-hover__title">
-      Make your <span>choice</span> right now!
-    </h3>
-  );
-}
-
-function Food() {
+function Menu({ props }) {
   return (
     <>
-      <Steps />
-      <p className="card-hover__text">
-        Lorem ipsum, dolor sit amet cssonsectetur adipisicing elit. Officia
-        quisquam doloremque nostrum laboriosam, blanditiis libero corporis nulla
-        a aut?
-      </p>
-    </>
-  );
-}
+      <Router>
+        <li>
+          <img src="https://www.iconpacks.net/icons/2/free-arrow-right-icon-2817-thumb.png" />
+          <span>{props.title}</span>
 
-function Buttons() {
-  return (
-    <>
-      <div className="card-hover__buttons">
-        <button href="#" className="previous round">
-          Previous
-        </button>
-        <button className="next round">Next</button>
-      </div>
-    </>
-  );
-}
-
-function Menu({ name }) {
-  return (
-    <>
-      <li>
-        <img src="https://www.iconpacks.net/icons/2/free-arrow-right-icon-2817-thumb.png" />
-        <span>{name}</span>
-        <button onClick={""}>Show Recipe</button>
-      </li>
+          <Link to={"/" + props.id}>Show Recipe</Link>
+        </li>
+        <Routes>
+          <Route path="/:id" element={<Food props={props} />} />
+        </Routes>
+      </Router>
     </>
   );
 }
@@ -68,7 +43,7 @@ function CookBook() {
         {food_recipes.length > 0 ? (
           <ol>
             {food_recipes.map((food) => (
-              <Menu name={food.title} key={food.title} />
+              <Menu props={food} key={food.title} />
             ))}
           </ol>
         ) : (
@@ -76,9 +51,6 @@ function CookBook() {
             Sorry to inform you but we don't have any recipes prepared for you.
           </span>
         )}
-
-        {/* <Food />
-        <Buttons /> */}
       </div>
     </div>
   );
