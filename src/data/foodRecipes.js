@@ -11,7 +11,6 @@ import chocolate_mug_cake from "./10-minute-chocolate-mug-cake.json";
 import rice_cake from "./10-minute-rice-cakes.json";
 import tomato_basil_salad from "./10-minute-tomato-basil-salad.json";
 import cheesecake from "./10-pound-cheesecake.json";
-import can_chili from "./11-can-chili.json";
 import coleslaw from "./12-second-coleslaw.json";
 import manhattan from "./12th-man-hattan.json";
 import nachos_supreme from "./15-minute-dinner-nachos-supreme.json";
@@ -31,7 +30,7 @@ import chicken_pie from "./1985-chicken-pie-with-biscuit-crust-11056.json";
 import chocolate_raspberry_almond from "./1989-chocolate-raspberry-almond-torte-11037.json";
 import maryland_crab_cake from "./19489.json";
 
-let food_recipes = [
+let foodRecipes = [
   cherry_poke_cake,
   jambalaya,
   lemon_icebox_pie,
@@ -45,7 +44,6 @@ let food_recipes = [
   rice_cake,
   tomato_basil_salad,
   cheesecake,
-  can_chili,
   coleslaw,
   manhattan,
   nachos_supreme,
@@ -66,4 +64,4 @@ let food_recipes = [
   maryland_crab_cake,
 ];
 
-export default food_recipes;
+export default foodRecipes;

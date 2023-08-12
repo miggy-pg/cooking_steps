@@ -1,5 +1,3 @@
-import React from "react";
-
 function Steps() {
   return (
     <h3 className="card-hover__title">
@@ -13,6 +11,7 @@ function Food({ props }) {
     <>
       <Steps />
       <p className="card-hover__text">{props.ingredients}</p>
+      <Buttons />
     </>
   );
 }
