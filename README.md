@@ -18,7 +18,12 @@ Check out the live demo of the Livre De Cuisine Website: [Demo Link](https://www
 
 ## Screenshots
 
+### Home Page
+
 ![Homepage](screenshots/home_page.png)
+
+### Food Recipe
+
 ![Recipe Details](screenshots/food_recipe.png)
 
 ## Installation
@@ -51,4 +56,4 @@ Contributions are welcome! If you'd like to contribute to the Livre De Cuisine w
 
 ## Contact
 
-Feel free to reach out to me via email at your@email.com or connect with me on [LinkedIn](https://www.linkedin.com/in/migui-galan/).
+Feel free to reach out to me via email at phillip.mgalan@gmail.com or connect with me on [LinkedIn](https://www.linkedin.com/in/migui-galan/).
