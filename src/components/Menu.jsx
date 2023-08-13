@@ -11,7 +11,9 @@ export function Menu({ props }) {
         />
         <span>{props.title}</span>
 
-        <Link to={"/" + props.id}>Show Recipe</Link>
+        <Link to={"/" + props.id}>
+          <button className="menu-card__show_recipe">Show Recipe</button>
+        </Link>
       </li>
     </>
   );

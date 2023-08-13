@@ -10,11 +10,7 @@ const findFoodId = (id) => {
 function FoodPage() {
   const { foodId } = useParams();
   const food = findFoodId(foodId);
-  return (
-    <div className="card-hover">
-      <Food props={food} />
-    </div>
-  );
+  return <Food props={food} />;
 }
 
 export default FoodPage;

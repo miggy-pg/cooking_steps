@@ -1,31 +1,79 @@
-function Steps() {
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import previous from "../assets/previous.png";
+
+function Steps({ directions, step }) {
   return (
-    <h3 className="card-hover__title">
-      Make your <span>choice</span> right now!
-    </h3>
+    <>
+      {Array.from({ length: directions.length }, (_, index) => (
+        <>
+          <li
+            className={`food-card__steps_circle ${
+              step === index ? "active" : "inactive"
+            } `}
+            key={index}
+          >
+            {index + 1}
+          </li>
+        </>
+      ))}
+    </>
   );
 }
 
 function Food({ props }) {
-  return (
-    <>
-      <Steps />
-      <p className="card-hover__text">{props.ingredients}</p>
-      <Buttons />
-    </>
-  );
-}
+  const [step, setStep] = useState(0);
 
-function Buttons() {
   return (
-    <>
-      <div className="card-hover__buttons">
-        <button href="#" className="previous round">
-          Previous
-        </button>
-        <button className="next round">Next</button>
+    <div className="food-card">
+      <Link to={"/"}>
+        <img
+          className="food-card__previous_page"
+          src={previous}
+          alt="previous"
+        />
+      </Link>
+
+      <h3 className="food-card__title">{props.title}</h3>
+      <ul className="food-card__steps">
+        <Steps directions={props.directions} step={step} />
+      </ul>
+      <div className="food-card__directions">
+        <p className="food-card__text">{props.directions[step]}</p>
       </div>
-    </>
+      <div className="food-card__buttons">
+        {step !== 0 ? (
+          <button
+            className="previous round"
+            onClick={() => {
+              setStep(step - 1);
+            }}
+          >
+            Previous
+          </button>
+        ) : null}
+
+        {step !== props.directions.length - 1 ? (
+          <button
+            className="next round"
+            onClick={() => {
+              setStep(step + 1);
+            }}
+          >
+            Next
+          </button>
+        ) : null}
+      </div>
+      <div className="food-card__ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          {props.ingredients.map((ingredient) => (
+            <li key={ingredient}>{ingredient}</li>
+          ))}
+        </ul>
+        <p className="food-card__text"></p>
+      </div>
+    </div>
   );
 }
 

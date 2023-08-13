@@ -4,11 +4,11 @@ import { Menu } from "../components/Menu";
 
 export function HomePage() {
   return (
-    <div className="card-hover">
+    <div className="menu-card">
       {/* TITLE */}
-      <div className="card-hover__cookbook_title_wrapper">
+      <div className="menu-card__cookbook_title_wrapper">
         <img src="https://www.svgrepo.com/show/124022/cookbook.svg" />
-        <span className="card-hover__cookbook_title">Livre De Cuisine</span>
+        <span className="menu-card__cookbook_title">Livre De Cuisine</span>
         <p>
           "Cooking is not only an essential skill for nourishing our bodies but
           also a creative and therapeutic activity that deepens our connection
@@ -16,7 +16,7 @@ export function HomePage() {
         </p>
       </div>
       {/* CONTENT */}
-      <div className="card-hover__content">
+      <div className="menu-card__content">
         {foodRecipes.length > 0 ? (
           <ol>
             {foodRecipes.map((food) => (
