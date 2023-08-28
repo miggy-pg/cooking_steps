@@ -1,23 +1,16 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import previous from "../assets/previous.png";
 
-function Steps({ directions, step }) {
+function Steps({ step, index }) {
   return (
-    <>
-      {Array.from({ length: directions.length }, (_, index) => (
-        <>
-          <li
-            className={`food-card__steps_circle ${
-              step === index ? "active" : "inactive"
-            } `}
-            key={index}
-          >
-            {index + 1}
-          </li>
-        </>
-      ))}
-    </>
+    <li
+      className={`food-card__steps_circle ${
+        step === index ? "active" : "inactive"
+      } `}
+    >
+      {index + 1}
+    </li>
   );
 }
 
@@ -36,7 +29,9 @@ function Food({ props }) {
 
       <h3 className="food-card__title">{props.title}</h3>
       <ul className="food-card__steps">
-        <Steps directions={props.directions} step={step} />
+        {Array.from({ length: props.directions.length }, (_, index) => (
+          <Steps step={step} index={index} key={index} />
+        ))}
       </ul>
       <div className="food-card__directions">
         <p className="food-card__text">{props.directions[step]}</p>
@@ -67,8 +62,8 @@ function Food({ props }) {
       <div className="food-card__ingredients">
         <h2>Ingredients</h2>
         <ul>
-          {props.ingredients.map((ingredient) => (
-            <li key={ingredient}>{ingredient}</li>
+          {props.ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
           ))}
         </ul>
         <p className="food-card__text"></p>

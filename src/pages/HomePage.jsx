@@ -19,8 +19,8 @@ export function HomePage() {
       <div className="menu-card__content">
         {foodRecipes.length > 0 ? (
           <ol>
-            {foodRecipes.map((food) => (
-              <Menu props={food} key={food.title} />
+            {foodRecipes.map((food, index) => (
+              <Menu props={food} key={index} />
             ))}
           </ol>
         ) : (
